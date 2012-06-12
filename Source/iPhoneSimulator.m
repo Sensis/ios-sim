@@ -100,11 +100,7 @@
       alreadyPrintedData = YES;
     }
   }
-  if ([notification object] == stdoutFileHandle) {
-    printf("%s", [str UTF8String]);
-  } else {
-    nsprintf(str);
-  }
+  printf("%s", [str UTF8String]);
 }
 
 
