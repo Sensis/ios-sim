@@ -3,7 +3,7 @@ ios-sim
 
 The ios-sim tool is a command-line utility that launches an iOS application on
 the iOS Simulator. This allows for niceties such as automated testing without
-having to open Xcode.
+having to open XCode.
 
 Features
 --------
@@ -18,22 +18,44 @@ See the `--help` option for more info.
 Installation
 ------------
 
-Through homebrew:
+With node.js (at least 0.10.20):
 
-    $ brew install ios-sim
+    $ sudo npm install ios-sim -g
 
 Download an archive:
 
-    $ curl -L https://github.com/Fingertips/ios-sim/zipball/1.3 -o ios-sim-1.3.zip
-    $ unzip ios-sim-1.3.zip
+    $ curl -L https://github.com/phonegap/ios-sim/zipball/1.9.0 -o ios-sim-1.9.0.zip
+    $ unzip ios-sim-1.9.0.zip
 
 Or from a git clone:
 
-    $ git clone git://github.com/Fingertips/ios-sim.git
+    $ git clone git://github.com/phonegap/ios-sim.git
 
 Then build and install from the source root:
 
     $ rake install prefix=/usr/local/
+
+
+Development
+-----------
+
+When you want to release a version, do:
+
+    $ rake version:bump v=NEW_VERSION
+    $ rake release
+    $ npm version NEW_VERSION -m "Updated to npm version %s"
+    
+tmux
+-----
+
+To get ios-sim to launch correctly within tmux use the reattach-to-user-namespace wrapper.
+
+```
+reattach-to-user-namespace ios-sim launch ./build/MyTestApp.app
+```
+*source:* https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
+
+*brew:*  ```brew install reattach-to-user-namespace```
 
 License
 -------
@@ -44,9 +66,4 @@ All rights reserved.
 
 This project is available under the MIT license. See [LICENSE][license].
 
-[license]: https://github.com/Fingertips/ios-sim/blob/master/LICENSE
-
-Acknowledgements
-----------------
-
-Thanks to [Fingertips](https://github.com/fingertips) for maintaining the repo previously at [https://github.com/fingertips/ios-sim](https://github.com/fingertips/ios-sim)
+[license]: https://github.com/phonegap/ios-sim/blob/master/LICENSE

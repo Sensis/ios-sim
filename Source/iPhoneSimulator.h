@@ -6,7 +6,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <iPhoneSimulatorRemoteClient/iPhoneSimulatorRemoteClient.h>
+#import <DVTiPhoneSimulatorRemoteClient/DVTiPhoneSimulatorRemoteClient.h>
 #import "version.h"
 
 @interface iPhoneSimulator : NSObject <DTiPhoneSimulatorSessionDelegate> {
@@ -14,9 +14,14 @@
   DTiPhoneSimulatorSystemRoot *sdkRoot;
   NSFileHandle *stdoutFileHandle;
   NSFileHandle *stderrFileHandle;
+  BOOL startOnly;
   BOOL exitOnStartup;
+  BOOL shouldStartDebugger;
+  BOOL useGDB;
   BOOL verbose;
   BOOL alreadyPrintedData;
+  BOOL retinaDevice;
+  BOOL tallDevice;
 }
 
 - (void)runWithArgc:(int)argc argv:(char **)argv;
